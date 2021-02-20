@@ -1,0 +1,26 @@
+pip install django_heroku
+Open settings.py and add those things on top.
+ - import django_heroku
+
+At the end of the settings.py add this.
+ - # Activate Django-Heroku.
+   django_heroku.settings(locals())
+pip install gunicorn
+Make a Procfile on root directory and write this web: gunicorn your_django_project_name.wsgi
+pip install whitenoise
+MIDDLEWARE = (
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    )
+Make a requirements.txt with pip freeze
+Heroku cli link:  https://devcenter.heroku.com/articles...
+heroku create "your app name".
+git init
+heroku git:remote -a "Your app name"
+git add .
+git commit -m "your message"
+git push heroku master
+heroku run python manage.py migrate
+heroku run python manage.py createsuperuser
+
+My github link: https://github.com/ahadnur
+Poll application link: https://polldjango.herokuapp.com/
